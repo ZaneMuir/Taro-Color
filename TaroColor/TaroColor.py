@@ -1,4 +1,4 @@
-class colors:
+class TaroColor:
     COLOR = {'BLACK' : 0,
     'RED' : 1,
     'GREEN' : 2,
@@ -40,10 +40,10 @@ class colors:
                     _format.append('3')
                 elif i == 'u':
                     _format.append('4')
-            return prefix%(';'.join(_format), colors.COLOR[target_background]+colors.background, colors.COLOR[target_foreground]+colors.foreground) + msg + colors.ENDC
+            return prefix%(';'.join(_format), TaroColor.COLOR[target_background]+TaroColor.background, TaroColor.COLOR[target_foreground]+TaroColor.foreground) + msg + TaroColor.ENDC
 
 
-        return prefix%(colors.COLOR[target_background]+colors.background, colors.COLOR[target_foreground]+colors.foreground) + msg + colors.ENDC
+        return prefix%(TaroColor.COLOR[target_background]+TaroColor.background, TaroColor.COLOR[target_foreground]+TaroColor.foreground) + msg + TaroColor.ENDC
 
     @staticmethod
     def rgb_color(msg, foreground = None, background = None, format_str=None):
@@ -67,9 +67,9 @@ class colors:
                     _format.append('3')
                 elif i == 'u':
                     _format.append('4')
-            return prefix%(';'.join(_format), target_foreground,target_background) + msg + colors.ENDC
+            return prefix%(';'.join(_format), target_foreground,target_background) + msg + TaroColor.ENDC
 
-        return prefix%(target_foreground,target_background) + msg + colors.ENDC
+        return prefix%(target_foreground,target_background) + msg + TaroColor.ENDC
 
 if __name__ == '__main__':
-    print(colors.rgb_color('hi',(200,200,200),(100,20,20), 'biu'))
+    print(TaroColor.rgb_color('hi',(200,200,200),(100,20,20), 'biu'))
