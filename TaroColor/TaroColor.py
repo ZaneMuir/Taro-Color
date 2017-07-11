@@ -26,6 +26,14 @@ class TaroColor:
 
     @staticmethod
     def color(msg, foreground = None, background = None, format_str=None):
+        '''TaroColor.color(msg, foreground = None, background = None, format_str=None)
+
+        foreground and background color could use one of
+        {\'BLACK\', \'RED\', \'GREEN\', \'YELLOW\', \'BLUE\', \'MAGENTA\', \'CYAN\', \'WHITE\', \'default, \'BRIGHT_RED\', \'BRIGHT_GREEN\', \'BRIGHT_YELLOW\' , \'BRIGHT_BLUE\' , \'BRIGHT_MAGENTA\', \'BRIGHT_CYAN\'}
+
+        format_str: \'b\' for bold, \'i\' for italic, \'u\' for underline
+        '''
+
         prefix = '\033[%d;%dm'
         target_foreground = foreground or 'default'
         target_background = background or 'default'
@@ -47,6 +55,15 @@ class TaroColor:
 
     @staticmethod
     def rgb_color(msg, foreground = None, background = None, format_str=None):
+        '''TaroColor.rgb_color(msg, foreground = (r,g,b), background = (r, g, b), format_str=None)
+        r, g, b should be int of 0...255.
+
+        foreground and background color could use one of
+        {\'BLACK\', \'RED\', \'GREEN\', \'YELLOW\', \'BLUE\', \'MAGENTA\', \'CYAN\', \'WHITE\', \'default, \'BRIGHT_RED\', \'BRIGHT_GREEN\', \'BRIGHT_YELLOW\' , \'BRIGHT_BLUE\' , \'BRIGHT_MAGENTA\', \'BRIGHT_CYAN\'}
+
+        format_str: \'b\' for bold, \'i\' for italic, \'u\' for underline
+        '''
+        
         prefix = '\033[%s;%sm'
         if foreground:
             target_foreground = '38;2;%d;%d;%d'%foreground
