@@ -9,5 +9,8 @@ setup(
     author='Zane Muir',
     author_email='zanemuir1995@gmail.com',
     url='https://github.com/ZaneMuir/Taro-Color',
+    download_url = 'https://github.com/ZaneMuir/Taro-Color/archive/v0.2.tar.gz', # I'll explain this in a second
+    keywords = ['color print', 'ANSI escape code'], # arbitrary keywords
+    classifiers = [],
     packages=['TaroColor']
 )
