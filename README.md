@@ -13,3 +13,6 @@ usage:
 
 ```TaroColor.rgb_color(msg, foreground = (r,g,b), background = (r, g, b), format_str=None)```:
 ```r```, ```g```, ```b``` should be ```int``` of ```0...255```.
+
+```TaroColor.xkcd_color(msg, foreground_name=None, background_name=None, format_str=None)```:
+```foreground_name``` and ```background_name``` shall be ```str``` of color names from [xkcd](https://xkcd.com/color/rgb/)

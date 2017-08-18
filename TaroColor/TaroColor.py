@@ -1,3 +1,11 @@
+import re
+from color import xkcd_color
+def hex2rgb(hex_str):
+    r, g, b = re.findall(r'\#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})', hex_str)[0]
+    result = (int('0x%s'%r, base=16), int('0x%s'%g, base=16), int('0x%s'%b, base=16))
+    print(result)
+    return result
+
 class TaroColor:
     COLOR = {'BLACK' : 0,
     'RED' : 1,
@@ -63,7 +71,7 @@ class TaroColor:
 
         format_str: \'b\' for bold, \'i\' for italic, \'u\' for underline
         '''
-        
+
         prefix = '\033[%s;%sm'
         if foreground:
             target_foreground = '38;2;%d;%d;%d'%foreground
@@ -88,5 +96,18 @@ class TaroColor:
 
         return prefix%(target_foreground,target_background) + msg + TaroColor.ENDC
 
+    @staticmethod
+    def xkcd_color(msg, foreground_name=None, background_name=None, format_str=None):
+        if foreground_name in xkcd_color.keys():
+            foreground = hex2rgb(xkcd_color[foreground_name])
+        else:
+            foreground = None
+        if background_name in xkcd_color.keys():
+            background = hex2rgb(xkcd_color[background_name])
+        else:
+            background = None
+
+        return TaroColor.rgb_color(msg, foreground=foreground, background=background, format_str=format_str)
+
 if __name__ == '__main__':
-    print(TaroColor.rgb_color('hi',(200,200,200),(100,20,20), 'biu'))
+    print(TaroColor.xkcd_color('hi',None,'bruise', 'biu'))
