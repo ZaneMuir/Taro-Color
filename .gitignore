@@ -1,5 +1,7 @@
-*.pyc
 .DS_Store
 build/*
 MANIFEST
 dist/*
+TaroColor/__pycache__/*
+
+*.pyc
